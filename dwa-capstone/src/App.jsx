@@ -1,16 +1,19 @@
-import { useState, useEffect } from 'react'
+// import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom" 
-import supabase from "./supabase" 
-import Login from "./pages/Login"
-import Home from "./pages/Home"
-import Favourite from './pages/Favourite'
-import './App.css'
+import Home from "./components/Home"
+
 
 function App() {
-
-
+ 
 	return( 
-
+    <BrowserRouter>  
+    {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/id/:id" element={<PodcastDetail /> } />
+        <Route path="/espisode/:episodeId" element={<PodcastEpisode /> } /> */}
+      </Routes>
+  </BrowserRouter>
     
   )
 }
