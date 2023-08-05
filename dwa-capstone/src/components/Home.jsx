@@ -69,10 +69,16 @@ const Home = () => {
     }
     
     return (
-        <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
-            <Navbar searchValue={searchValue}
+    <>
+        <Navbar searchValue={searchValue}
                     setSearchValue={setSearchValue}/>
-            <Box>
+        <Stack sx={{ flexDirection: { sx: "column", md: "row" }, m: 2 }}>
+            
+            <Box sx={{ height: { sx: "auto", md: "85vh" }, 
+                                width: {md: "25%", xs: "auto"},
+                                borderRight: "2px solid #fafafa",
+                                background: "yellow",
+                                px: { sx: 0, md: 2 } }}>
                 <Sidebar genreData={genreData}
                          onSelect={handleGenreSelection}/>
             </Box>
@@ -99,6 +105,7 @@ const Home = () => {
             </Box>
             
         </Stack>
+    </>
     )
 }
 
