@@ -9,7 +9,8 @@ const Navbar = (prop) => {
             direction="row" 
             alignItems="center" 
             p={2} 
-            sx={{ position: "sticky", 
+            sx={{ height: "11vh",
+                position: "sticky", 
                 background: "#4a148c", 
                 justifyContent: "space-between"}}>
             <img src={Logo} height={30}  />

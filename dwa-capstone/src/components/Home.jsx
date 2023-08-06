@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {Stack, Box, Select, MenuItem, InputLabel} from "@mui/material"
+import {Stack, Box, Select, MenuItem, InputLabel, Typography} from "@mui/material"
 import PodcastList from "./PodcastList"
 import Sidebar from "./Sidebar";
 import genreData from "../genres.js";
@@ -72,36 +72,52 @@ const Home = () => {
     <>
         <Navbar searchValue={searchValue}
                     setSearchValue={setSearchValue}/>
-        <Stack sx={{ flexDirection: { sx: "column", md: "row" }, m: 2 }}>
+        <Stack sx={{ flexDirection: { sx: "column", md: "row" }, m: 1 }}>
             
             <Box sx={{ height: { sx: "auto", md: "85vh" }, 
                                 width: {md: "25%", xs: "auto"},
                                 borderRight: "2px solid #fafafa",
-                                background: "yellow",
                                 px: { sx: 0, md: 2 } }}>
                 <Sidebar genreData={genreData}
                          onSelect={handleGenreSelection}/>
             </Box>
-            <Box>{filteredPodcasts.length > 0 ? (
-                <PodcastList podcasts={filteredPodcasts} />
-                
-            ) : (
-                <PodcastList podcasts={sortedPodcasts ? sortedPodcasts : podcastData} />
-            )}
-             <InputLabel id="select-label">Sort by: </InputLabel>
+            <Box sx={{ overflowY: "auto", 
+                                height: "90vh", 
+                                flex: 2, 
+                                p: 1, }}> 
+                <div className="title-sort-container">
+                <Typography variant="h5" sx={{ color: "#7b1fa2", 
+                                                        fontWeight: "bold", 
+                                                        mb: 2, 
+                                                        }}>
+                                    <span>{selectedGenre ? selectedGenre.title : "Discover"}</span>
+                </Typography>
+                <div className="sort--select">
+                <InputLabel id="select-label">Sort by: </InputLabel>
                 <Select
                         labelId="select-label"
                         id="select"
                         value={sortType}
                         label="Sort by"
                         onChange={handleSort}
-                        sx={{ width: { md: "28vh", xs: "auto"}, height: "8vh", mb: 1 }}
+                        sx={{ width: { sm: "10vw", xs: "auto"}, height: "6vh", mb: 1, ml: 1 }}
                 >
                     <MenuItem value={"A-Z"}>A-Z</MenuItem>
                     <MenuItem value={"Z-A"}>Z-A</MenuItem>
                     <MenuItem value={"Latest date"}>Latest date</MenuItem>
                     <MenuItem value={"Oldest date"}>Oldest date</MenuItem>
                 </Select>
+                </div>
+                </div>
+                {filteredPodcasts.length > 0 ? (
+                <PodcastList podcastData={filteredPodcasts} />
+                
+            ) : (
+                <PodcastList podcastData={sortedPodcasts ? sortedPodcasts : podcastData}
+                                     filteredPodcasts={filteredPodcasts}
+                                     selectedGenre={selectedGenre} />
+            )}
+            
             </Box>
             
         </Stack>
