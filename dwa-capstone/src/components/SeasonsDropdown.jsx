@@ -25,7 +25,7 @@ const SeasonsDropdown = (prop) => {
                         value={selectSeason}
                         label="Seasons"
                         onChange={handleChange}
-                        sx={{ width: { md: "28vh", xs: "auto"}, height: "8vh", mb: 1 }}
+                        sx={{ width: { md: "13vw", sm: "20vw", xs: "40vw"}, height: "8vh", mb: 1 }}
                 >
                  
                   {seasons.map((season) => {

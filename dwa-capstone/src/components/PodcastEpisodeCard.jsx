@@ -15,7 +15,7 @@ const PodcastEpisodeCard = (prop) => {
     console.log(episodesData)
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column' , width: "94vw", alignSelf: "center"}}>
-            <Card sx={{ display: 'flex', m: 0.3, width: {xs: "82vw", md: "auto"}, height: {xs: "50vh", md: "35vh" } }}>
+            <Card sx={{ display: 'flex', m: 0.3, width: {xs: "94vw", md: "auto"}, height: {xs: "30vh", md: "35vh" } }}>
             <Stack sx={{ display: 'flex', flexDirection: {xs: 'column', md: "column"}, width: {xs: "60vw"}}}>
                 <CardContent sx={{ flex: '1 0 auto' }}>
                 <Typography component="div" variant="subtitle1">

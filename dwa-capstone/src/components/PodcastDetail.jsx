@@ -13,13 +13,18 @@ const PodcastDetail = () => {
     const [episodesData, setEpisodesData] = useState([])
     const [loading, setLoading] = useState(true)
     const [showFullDescription, setShowFullDescription] = useState(false)
+    // const [isFavourites, setIsFavourites] = useState(false)
+    // const [favourites, setFavourites] = useState(() => {
+    //     const storedFavourites = localStorage.getItem('favourites-podcats');
+    //     return storedFavourites ? JSON.parse(storedFavourites) : [];
+    //   })
 
     const { id } = useParams();
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
-    const goBack = () => {
-        navigate(-1);
+    const navigateToHome = () => {
+        navigate("/")
     }
 
     useEffect(() => {
@@ -30,7 +35,16 @@ const PodcastDetail = () => {
         setTimeout(() => {
         setLoading(false)
         }, 500);})
-    }, [id])
+    }, [id]) 
+
+    // const saveToLocalStorage = (item) => {
+    //     localStorage.setItem('favourite-podcats', JSON.stringify(item))
+    // }
+
+    // useEffect(() => {
+    //     saveToLocalStorage(favourites)
+    // }, [favourites])
+
 
     if(loading) {
         return (
@@ -58,18 +72,44 @@ const PodcastDetail = () => {
     const handleSeasonSelection = (selectedSeason) => {
         setEpisodesData(selectedSeason)
     }
-  
+
+    // const addFavouritePodcast = (podcast) => {
+    //     setFavourites(prevFav => ({
+    //         ...prevFav, 
+    //         isFavourite: !prevFav.isFavourite,
+    //         podcast
+    //     }))
+        
+    // }
+
+
+   
+
+    // const addFavouritePodcast = (podcast) => {
+    //     console.log(podcast)
+    //     setIsFavourites(prevState => !prevState)
+
+    //     if(isFavourites) {
+    //         setFavourites.filter((prevFavs) => 
+    //         prevFavs.filter((fav) => fav.id !== podcast.id))
+    //     }
+    //     else {
+    //         setFavourites((prevFavs) => [...prevFavs, podcast])
+    //     }
+    // }
+
   return (
     <>
     <Navbar disableSearch={disableSearch}/>
     <Stack flexDirection="column">
         <Button variant="outlined" color="secondary" 
                     sx={{ width: 100, mt: 4, ml: { xs: 2, sm: 4}}}
-                    onClick={goBack}>Back</Button>
+                    onClick={navigateToHome}>Back</Button>
         <Card sx={{ display: 'flex', 
                     width: {sm: "auto", xs: "auto"},    
-                    height: {md: "auto", xs: "49vh"}, 
-                    m: {sm: 4, xs: 2} 
+                    height: {md: "auto", xs: "43vh"}, 
+                    m: {sm: 4, xs: 2},
+                    fontSize: {xs: "2pt"}
                 }}>
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                 <CardContent sx={{ flex: '1 0 auto',  }}>
@@ -89,7 +129,6 @@ const PodcastDetail = () => {
                     <span>Updated: {dateFormate ? dateFormate : "Not available"}</span><br />
                     <span>Genres: {podcastDetail.genres ? podcastDetail.genres.join(", ") : "Not available"}</span>
                 </Typography>
-                
                 </CardContent>
             </Box>
             <CardMedia

@@ -85,6 +85,7 @@ const Home = () => {
     const handleGenreSelection = (genre) => {
         setSelectedGenre(genre)
     }
+
     
     return (
     <>

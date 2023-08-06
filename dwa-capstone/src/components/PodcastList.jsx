@@ -3,7 +3,7 @@ import { Stack } from "@mui/material";
 
   const PodcastList = (prop) => {
     const { podcastData, selectedGenre, filteredPodcasts } = prop
-  
+
     if (!selectedGenre || selectedGenre.length === 0) {
       const allPodcasts = podcastData.map((podcast) => {
         return (
@@ -45,3 +45,4 @@ import { Stack } from "@mui/material";
   }
 
 export default PodcastList;
+
