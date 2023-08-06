@@ -21,8 +21,8 @@ const Navbar = (prop) => {
                 sx={{ flexGrow: 1, ml: 2 }}>
                 Euphoria
             </Typography>
-            <SearchFeed searchValue={prop.searchValue}
-                         setSearchValue={prop.setSearchValue}/>
+            {prop.disableSearch ? <></> : <SearchFeed searchValue={prop.searchValue}
+                         setSearchValue={prop.setSearchValue}/>}
         </Stack>
              
         </div>
