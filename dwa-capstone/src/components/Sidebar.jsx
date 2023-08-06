@@ -1,7 +1,14 @@
 import { Stack, Button } from "@mui/material"
+import { useNavigate } from "react-router-dom"
 
 const Sidebar = (prop) => {
     const { genreData, onSelect } = prop
+
+    const navigate = useNavigate()
+
+    const navigateToFavourites = () => {
+        navigate("/favourites")
+    }
 
     return(
         <Stack direction="row" sx={{ overflowY: "auto",
@@ -18,7 +25,7 @@ const Sidebar = (prop) => {
                                                 px: 7,
                                                 borderRadius: "10px",
                                                }}
-            onClick={() => onSelect("")}>Favourites</Button>
+            onClick={navigateToFavourites}>Favourites</Button>
             {genreData.map((genre) => {
                 return(
                     <Button key={genre.id} color="secondary" sx={{ height: { xs: "auto", md: "100%"},

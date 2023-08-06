@@ -3,14 +3,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from "./components/Home"
 import PodcastDetail from "./components/PodcastDetail"
 import PodcastEpisodeCard from "./components/PodcastEpisodeCard"
+import Favourites from "./pages/Favourites"
 
 function App() {
  
 	return( 
     <BrowserRouter>  
-    {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/favourites" element={<Favourites />} />
         <Route path="/id/:id" element={<PodcastDetail /> } />
         <Route path="/espisode/:episodeId" element={<PodcastEpisodeCard /> } />
       </Routes>

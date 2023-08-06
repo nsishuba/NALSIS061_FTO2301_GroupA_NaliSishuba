@@ -53,7 +53,6 @@ const PodcastDetail = () => {
     
     const cutDescription = podcastDetail.description.slice(0, 500)
 
-    console.log(podcastDetail)
     const disableSearch = true
 
     const handleSeasonSelection = (selectedSeason) => {
